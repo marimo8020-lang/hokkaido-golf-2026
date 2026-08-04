@@ -126,6 +126,11 @@
   }
   .zlabel{font-size:10px;color:var(--nest-blue);font-weight:700;margin-top:15px;display:block;letter-spacing:.04em;}
 
+  .map{display:block;margin:11px 0 0;border:1px solid var(--rule);background:#fff;text-decoration:none;}
+  .map img{display:block;width:100%;height:auto;}
+  .map-fallback{display:none;padding:16px;text-align:center;font-size:12px;font-weight:700;color:var(--nest-blue);}
+  .credit{margin:4px 0 0;font-size:9.5px;letter-spacing:.04em;color:var(--muted);}
+
   dl{margin:11px 0 0;display:grid;grid-template-columns:62px 1fr;gap:6px 10px;}
   dt{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--muted);padding-top:3px;}
   dd{margin:0;font-size:13.5px;line-height:1.55;}
@@ -198,15 +203,16 @@
     <h2>本日のスコア設計</h2>
     <table>
       <tr><th>区分</th><th>ホール</th><th>方針</th></tr>
-      <tr class="go"><td>攻める</td><td class="holes">4・5・12・16・17</td><td>ピンを見ていい</td></tr>
-      <tr><td>淡々と</td><td class="holes">1・2・7・9・10・18</td><td>センター狙いのパー</td></tr>
-      <tr class="hold"><td>ボギーOK</td><td class="holes">3・6・8・11・13・14・15</td><td>ダブル回避が最優先</td></tr>
+      <tr class="go"><td>攻める</td><td class="holes">5・7・12・16・17</td><td>ピンを見ていい</td></tr>
+      <tr><td>淡々と</td><td class="holes">1・2・9・10・18</td><td>センター狙いのパー</td></tr>
+      <tr class="hold"><td>ボギーOK</td><td class="holes">3・4・6・8・11・13・14・15</td><td>ダブル回避が最優先</td></tr>
     </table>
   </section>
 
   <footer>
     ボギーOKの7ホールを全部ボギーで凌ぎ、攻めるホールで1つ拾えば80。ここでダブルを2つ出すと86〜87に振れる、というのがこのコースの構造。<br>
-    バー上の推奨落とし所はドライバー255〜270Y・ドロー前提の目安。バンカーやハザードの正確な残り距離は当日キャディに確認すること。
+    バー上の推奨落とし所はドライバー255〜270Y・ドロー前提の目安。バンカーやハザードの正確な残り距離は当日キャディに確認すること。<br>
+    レイアウト図は楽天GORA（Shot Navi提供）から読み込んでいます。画像だけは通信が必要で、圏外では表示されません。
   </footer>
 
 </div>
@@ -268,61 +274,63 @@ const DATA = [
    kill:"ショート＝転がり落ちる。オーバー＝ノーチャンス。<b>ピンより下</b>。", zone:[110,125]},
 
   {n:1,par:4,y:370,hdcp:15,cls:"",tags:[["t-draw","持ち球向き"]],
-   tee:"左ドッグレッグ。ドローが素直に活きる。コーナーへ。",
-   leave:"打ち下ろしのセカンドは<b>1番手下げる</b>",
-   green:"セカンドは打ち下ろしで距離感が難しい。",
-   kill:"昼食明け1発目の引っ掛け。振り幅を8割から入る。", zone:[125,140]},
+   tee:"フェアウェイは広い。ただし<b>右サイドの大木を狙う</b>と、セカンドがバンカー越えにならずに済む。",
+   leave:"やや打ち下ろし。<b>1番手下げる</b>",
+   green:"手前から転がしてでも乗せられる。奥のバンカーに入れると難しいので<b>手前から</b>。",
+   kill:"昼食明け1発目の引っ掛け。振り幅8割から入る。", zone:[125,140]},
 
   {n:2,par:4,y:406,hdcp:7,cls:"",tags:[["t-hold","FWキープ"]],
-   tee:"フェアウェイキープ最優先。林間でOBラインが近い。",
-   leave:"145〜155をグリーンセンター",
-   green:"—",
-   kill:"思ったよりOBが近い。飛距離を取りにいかない。", zone:[145,155]},
+   tee:"フェアウェイ全体が右に傾斜。<b>左のスロープを使って</b>フェアウェイキープ。",
+   leave:"145〜155。長いアイアンでの難しいショットになる",
+   green:"<b>グリーン奥は湿原。</b>手前から安全に乗せる。",
+   kill:"平坦なライがほぼない。無理に振ってのトップ・ダフリ。", zone:[145,155]},
 
   {n:3,par:4,y:378,hdcp:3,cls:"hard",tags:[["t-hold","ボギーOK"]],
-   tee:"378Yで<b>HDCP3</b>＝距離ではなくティーショットに罠がある。キャディに置き所を確認。",
+   tee:"<b>フェアウェイ左サイドへ打てないとゲームメイク不可</b>。左からなら楽にグリーンが狙える。",
    leave:"130〜150のフルショット",
-   green:"—",
-   kill:"知らずにドライバーを振ること。刻む勇気を先に持っておく。", zone:[130,150]},
+   green:"アンジュレーションがきつい。乗ってからも油断せずパットは慎重に。",
+   kill:"<b>右は大きなトラブル。</b>ドローの持ち球を素直に使って左サイドへ。", zone:[130,150]},
 
-  {n:4,par:5,y:486,hdcp:13,cls:"easy",tags:[["t-go","本日最大のチャンス"]],
-   tee:"ほぼストレート。<b>ドライバーで振っていい</b>。",
-   leave:"2オン狙いは<b>ライを見てから</b>決める。悪ければ残り80〜100に刻む",
-   green:"フェアウェイのアンジュレーションで左足下がり・爪先上がりが出やすい。",
-   kill:"悪いライから無理に2オンを狙うこと。", zone:[80,100]},
+  {n:4,par:5,y:486,hdcp:13,cls:"hard",tags:[["t-go","チャンス"],["t-hold","1打目が全て"]],
+   tee:"やや打ち下ろし。<b>右のバンカー群を避けてフェアウェイ左サイド</b>へ。",
+   leave:"第2打はグリーン花道方向へやや右狙い。<b>3打目をどこから打つか</b>で落とし所を決める",
+   green:"—",
+   kill:"ティーショットの失敗がそのまま大叩きになる設計。ここだけは慎重に。", zone:[80,110]},
 
   {n:5,par:3,y:163,hdcp:9,cls:"easy",tags:[["t-go","NPホール"]],
-   tee:"グリーンセンター。ピンが手前なら勝負。",
+   tee:"左サイドと奥のバンカーは気にせず<b>グリーンセンター</b>。",
    leave:"—",
-   green:"—",
-   kill:"奥。このコースのショートは全部オーバーが難しい。", zone:null},
+   green:"難関の4番の後の美しいショート。気持ちよく打てる。",
+   kill:"<b>グリーン右の池は見た目より近い。</b>ピンが右の日は特に注意。", zone:null},
 
-  {n:6,par:4,y:360,hdcp:5,cls:"hard",tags:[["t-hold","ボギーOK"]],
-   tee:"360Yで<b>HDCP5</b>。距離ではない難しさ。置き所を確認して刻む。",
-   leave:"自信のあるフルショットの距離を残す",
+  {n:6,par:4,y:360,hdcp:5,cls:"hard",tags:[["t-draw","越えられる"],["t-hold","誘惑注意"]],
+   tee:"左ドッグでやや打ち下ろし。<b>大きなバンカー越えか、右の広いフェアウェイか</b>の選択。距離的には楽に越えるバンカーで、視覚的に不安を煽ってくるだけ。",
+   leave:"<b>2打目は打ち上げ。+1番手</b>",
    green:"—",
-   kill:"距離が短いから、と何も考えずにドライバー。", zone:[120,140]},
+   kill:"見た目に負けて右に逃げ、2打目の打ち上げが長くなること。", zone:[120,140]},
 
   {n:7,par:3,y:174,hdcp:17,cls:"easy",tags:[["t-go","最も易しい"]],
-   tee:"グリーンセンター。淡々と。",
+   tee:"<b>ティーから下って、グリーンはやや上がっている。</b>距離感を間違えないこと。",
    leave:"—",
-   green:"—",
-   kill:"奥。", zone:null},
+   green:"アゲインストでなければミドルアイアンで楽に届く。",
+   kill:"ピンが右サイドの日は無理をしない。センターで十分。", zone:null},
 
   {n:8,par:4,y:397,hdcp:1,cls:"hard",tags:[["t-draw","持ち球が武器"],["t-hold","ボギーOK"]],
-   tee:"<b>フェアウェイ左サイド</b>。左から右への傾斜でボールは右へ流れる。左に打ち出して戻すドローが正解。",
-   leave:"打ち上げで実質420Y級。<b>無理に乗せずグリーン手前</b>へ",
+   tee:"フェアウェイは広いが<b>右にかなり傾斜</b>。左サイドを狙って打ち出す。左に出して戻すドローが正解。",
+   leave:"距離があり2打目は長いクラブ。<b>無理に乗せずグリーン手前</b>へ",
    green:"かなりの受けグリーン。上につけたらノーチャンス。",
    kill:"右は谷のように低くOB。17ホール目の疲れで右に出る。", zone:[150,175]},
 
-  {n:9,par:5,y:487,hdcp:11,cls:"",tags:[["t-hold","3打で乗せる"],["t-hold","DCホール"]],
-   tee:"狭いフェアウェイにドライバーをきっちり。",
-   leave:"<b>クリーク手前に刻む。</b>残りは一番自信のあるフルウェッジの距離に合わせる",
-   green:"3打目は大きな木越えの打ち上げ、斜めに横たわる縦幅のない2段グリーン。手前と奥にバンカー。",
+  {n:9,par:5,y:487,hdcp:11,cls:"",tags:[["t-hold","勝負は3打目"],["t-hold","DCホール"]],
+   tee:"<b>フェアウェイにバンカーが一つもない。</b>山並みを見ながら豪快にドライバーでいい。",
+   leave:"セカンドもセンターへ振れる。ただし<b>クリーク手前まで</b>",
+   green:"勝負は3打目。木越えの打ち上げから、<b>左右に長く縦幅のない湿原越えのグリーン</b>へ。グリーン周りも狭い。",
    kill:"3打目の番手不足。ピンのある段に届く番手を選ぶ。", zone:[100,110]}
 ];
 
 const MAXY = 515;
+const IMGBASE = "https://image.gora.golf.rakuten.co.jp/img/golf/10101/new_hole_info/247_";
+const GORA = "https://booking.gora.golf.rakuten.co.jp/guide/course_info/layout/disp/c_id/10101";
 const chips = document.getElementById("chips");
 const holes = document.getElementById("holes");
 
@@ -360,6 +368,12 @@ DATA.forEach((h,i) => {
     </div>
     ${h.tags.map(t => `<span class="tag ${t[0]}">${t[1]}</span>`).join("")}
     ${scaleHTML(h)}
+    <a class="map" href="${IMGBASE}${h.n}.png" target="_blank" rel="noopener">
+      <img src="${IMGBASE}${h.n}.png" alt="${h.n}番 ホールレイアウト図" loading="lazy"
+           onerror="this.style.display='none';this.parentNode.href='${GORA}';this.parentNode.querySelector('.map-fallback').style.display='block';">
+      <span class="map-fallback">${h.n}番のレイアウト図を楽天GORAで開く →</span>
+    </a>
+    <p class="credit">${h.n}番 レイアウト図：楽天GORA／Shot Navi（タップで拡大）</p>
     <dl>
       <dt>ティー</dt><dd>${h.tee}</dd>
       ${h.leave !== "—" ? `<dt>残す</dt><dd>${h.leave}</dd>` : ""}
