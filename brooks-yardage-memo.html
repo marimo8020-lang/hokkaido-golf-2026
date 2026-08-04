@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>北海道ブルックスCC ヤーデージメモ｜ティマークⅢ・10番スタート</title>
+<style>
+  :root{
+    --paper:#E9EBE4;
+    --paper-card:#F5F6F1;
+    --ink:#1B1E19;
+    --muted:#6E7269;
+    --rule:#C9CDC1;
+    --nest-blue:#1E5F9E;   /* 青巣箱 200Y */
+    --nest-yellow:#DFA61C; /* 黄巣箱 150Y */
+    --nest-white:#FFFFFF;  /* 白巣箱 100Y */
+    --marsh:#4E5A2E;       /* 湿原・池 */
+    --kill:#A8321F;        /* 死に筋 */
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+    font-size:15px;
+    line-height:1.6;
+    -webkit-text-size-adjust:100%;
+    padding:0 0 64px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 14px;}
+
+  /* ---- masthead ---- */
+  header.top{padding:26px 0 14px;border-bottom:2px solid var(--ink);}
+  .kicker{
+    font-size:11px;letter-spacing:.22em;color:var(--muted);
+    text-transform:uppercase;margin:0 0 6px;
+  }
+  h1{
+    margin:0;font-size:23px;line-height:1.25;font-weight:800;letter-spacing:.01em;
+  }
+  h1 small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:5px;letter-spacing:.04em;}
+  .facts{
+    display:flex;flex-wrap:wrap;gap:0;margin:14px 0 0;
+    border-top:1px solid var(--rule);
+  }
+  .fact{flex:1 1 25%;padding:9px 0 4px;border-right:1px solid var(--rule);}
+  .fact:last-child{border-right:0;}
+  .fact b{display:block;font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.01em;}
+  .fact span{display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);}
+
+  /* ---- legend: 巣箱コード ---- */
+  .legend{
+    margin:16px 0 0;padding:12px 13px;background:var(--paper-card);
+    border:1px solid var(--rule);
+  }
+  .legend h2{margin:0 0 8px;font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:700;}
+  .nests{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .nest{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;}
+  .box{width:13px;height:15px;border:1px solid var(--ink);position:relative;}
+  .box::after{content:"";position:absolute;left:50%;top:3px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:rgba(0,0,0,.55);}
+  .b-blue{background:var(--nest-blue);} .b-yellow{background:var(--nest-yellow);} .b-white{background:var(--nest-white);}
+  .legend p{margin:9px 0 0;font-size:11.5px;color:var(--muted);line-height:1.5;}
+
+  /* ---- three rules ---- */
+  .rules{margin:14px 0 0;padding:0;list-style:none;}
+  .rules li{
+    display:flex;gap:10px;padding:8px 0;border-bottom:1px dotted var(--rule);font-size:13.5px;font-weight:600;
+  }
+  .rules li:last-child{border-bottom:0;}
+  .rules i{font-style:normal;color:var(--kill);font-weight:800;flex:0 0 auto;}
+
+  /* ---- jump nav ---- */
+  nav.jump{
+    position:sticky;top:0;z-index:20;background:var(--paper);
+    padding:9px 0 8px;border-bottom:1px solid var(--rule);
+    margin-top:22px;
+  }
+  .chips{display:flex;gap:5px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:2px;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{
+    flex:0 0 auto;min-width:31px;text-align:center;padding:5px 0;
+    font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;
+    color:var(--ink);text-decoration:none;
+    border:1px solid var(--rule);background:var(--paper-card);
+  }
+  .chip.turn{border:0;background:none;color:var(--muted);font-size:10px;letter-spacing:.12em;padding:5px 3px;min-width:auto;align-self:center;}
+
+  /* ---- hole card ---- */
+  .nine-label{
+    margin:26px 0 10px;font-size:11px;letter-spacing:.24em;color:var(--muted);font-weight:700;
+    display:flex;align-items:center;gap:10px;
+  }
+  .nine-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+
+  .hole{
+    background:var(--paper-card);border:1px solid var(--rule);
+    border-left:5px solid var(--ink);
+    margin:0 0 12px;padding:13px 13px 14px;scroll-margin-top:52px;
+  }
+  .hole.easy{border-left-color:var(--nest-blue);}
+  .hole.hard{border-left-color:var(--kill);}
+
+  .hrow{display:flex;align-items:baseline;gap:9px;}
+  .hnum{font-size:31px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;}
+  .hpar{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.06em;}
+  .hyds{margin-left:auto;font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1;}
+  .hyds em{font-style:normal;font-size:11px;font-weight:700;color:var(--muted);margin-left:2px;}
+
+  .tag{
+    display:inline-block;font-size:10px;font-weight:800;letter-spacing:.1em;
+    padding:2px 6px;margin:8px 5px 0 0;border:1px solid currentColor;
+  }
+  .t-draw{color:var(--nest-blue);} .t-anti{color:var(--kill);} .t-go{color:var(--marsh);} .t-hold{color:var(--muted);}
+
+  /* signature: 巣箱スケール */
+  .scale{margin:12px 0 2px;}
+  .track{position:relative;height:20px;border-bottom:2px solid var(--ink);}
+  .track .fill{position:absolute;left:0;bottom:0;height:5px;background:var(--ink);opacity:.14;}
+  .tick{position:absolute;bottom:0;transform:translateX(-50%);}
+  .tick i{display:block;width:11px;height:13px;border:1px solid var(--ink);margin:0 auto;}
+  .tick b{display:block;font-size:9px;font-weight:700;color:var(--muted);text-align:center;margin-top:1px;font-variant-numeric:tabular-nums;}
+  .zone{
+    position:absolute;bottom:5px;height:12px;background:repeating-linear-gradient(135deg,rgba(30,95,158,.35) 0 4px,transparent 4px 8px);
+    border-left:2px solid var(--nest-blue);border-right:2px solid var(--nest-blue);
+  }
+  .zlabel{font-size:10px;color:var(--nest-blue);font-weight:700;margin-top:15px;display:block;letter-spacing:.04em;}
+
+  dl{margin:11px 0 0;display:grid;grid-template-columns:62px 1fr;gap:6px 10px;}
+  dt{font-size:10px;font-weight:800;letter-spacing:.1em;color:var(--muted);padding-top:3px;}
+  dd{margin:0;font-size:13.5px;line-height:1.55;}
+  dd.kill{color:var(--kill);font-weight:700;}
+  dd b{font-weight:800;}
+
+  .turn-break{
+    margin:22px 0;padding:11px 13px;border:1px dashed var(--ink);
+    font-size:12.5px;font-weight:700;letter-spacing:.04em;text-align:center;
+  }
+
+  /* ---- plan table ---- */
+  section.plan{margin:30px 0 0;}
+  section.plan h2{font-size:11px;letter-spacing:.24em;color:var(--muted);font-weight:700;margin:0 0 10px;}
+  table{width:100%;border-collapse:collapse;font-size:13px;background:var(--paper-card);}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top;}
+  th{font-size:10px;letter-spacing:.12em;color:var(--muted);font-weight:800;}
+  td.holes{font-variant-numeric:tabular-nums;font-weight:700;}
+  tr.go td:first-child{color:var(--marsh);font-weight:800;}
+  tr.hold td:first-child{color:var(--kill);font-weight:800;}
+
+  footer{margin:26px 0 0;padding-top:14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--muted);line-height:1.65;}
+
+  @media (prefers-reduced-motion:no-preference){
+    .hole{animation:rise .32s ease both;}
+    @keyframes rise{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:none;}}
+  }
+  @media print{
+    body{background:#fff;} nav.jump{display:none;} .hole{break-inside:avoid;animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">Hokkaido Brooks CC ／ Tee Ⅲ</p>
+    <h1>ヤーデージメモ
+      <small>10番スタート・競技ラウンド用／Par72・6,481Y</small>
+    </h1>
+    <div class="facts">
+      <div class="fact"><b>6,481</b><span>TOTAL Y</span></div>
+      <div class="fact"><b>72</b><span>PAR</span></div>
+      <div class="fact"><b>71.8</b><span>COURSE R.</span></div>
+      <div class="fact"><b>132</b><span>SLOPE</span></div>
+    </div>
+  </header>
+
+  <div class="legend">
+    <h2>巣箱＝ヤーデージ標識（全てグリーンセンターまで）</h2>
+    <div class="nests">
+      <span class="nest"><i class="box b-blue"></i>200Y</span>
+      <span class="nest"><i class="box b-yellow"></i>150Y</span>
+      <span class="nest"><i class="box b-white"></i>100Y</span>
+    </div>
+    <p>スプリンクラー蓋にもヤード表示あり。ピン位置の前後差は自分で補正すること。各ホールのバーはこの3色に対応した概念スケール。</p>
+  </div>
+
+  <ul class="rules">
+    <li><i>1</i>ラフに入ったらアイアンでフェアウェイに戻す。例外なし。</li>
+    <li><i>2</i>湿原・池の隣は曲げたら即ロスト。迷ったらプロビジョナル。</li>
+    <li><i>3</i>ボギーOKホールで無理をしない。ダブルが唯一の敵。</li>
+  </ul>
+
+  <nav class="jump"><div class="chips" id="chips"></div></nav>
+
+  <div id="holes"></div>
+
+  <section class="plan">
+    <h2>本日のスコア設計</h2>
+    <table>
+      <tr><th>区分</th><th>ホール</th><th>方針</th></tr>
+      <tr class="go"><td>攻める</td><td class="holes">4・5・12・16・17</td><td>ピンを見ていい</td></tr>
+      <tr><td>淡々と</td><td class="holes">1・2・7・9・10・18</td><td>センター狙いのパー</td></tr>
+      <tr class="hold"><td>ボギーOK</td><td class="holes">3・6・8・11・13・14・15</td><td>ダブル回避が最優先</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    ボギーOKの7ホールを全部ボギーで凌ぎ、攻めるホールで1つ拾えば80。ここでダブルを2つ出すと86〜87に振れる、というのがこのコースの構造。<br>
+    バー上の推奨落とし所はドライバー255〜270Y・ドロー前提の目安。バンカーやハザードの正確な残り距離は当日キャディに確認すること。
+  </footer>
+
+</div>
+
+<script>
+const DATA = [
+  {n:10,par:4,y:358,hdcp:10,cls:"",tags:[["t-hold","1ホール目"]],
+   tee:"<b>3W／UTで215〜225</b>、フェアウェイセンター。外すなら右。",
+   leave:"135〜145のフルショット",
+   green:"バンカーはグリーン左に1つだけ。2打目はまっすぐ狙える。",
+   kill:"左右の林が近い。体が動いていない初っ端の引っ掛け。", zone:[135,145]},
+
+  {n:11,par:5,y:515,hdcp:4,cls:"hard",tags:[["t-hold","3打で組む"]],
+   tee:"中央〜やや左。右の大きな木と細長いバンカーを外す。",
+   leave:"刻みすぎない。<b>残り110〜120</b>で止める（先はFWが極端に狭くなる）",
+   green:"3打目は7〜8mの打ち上げ・左足上がりでグリーン面が見えない。<b>1番手大きめ＋センター</b>。",
+   kill:"右のバンカー。そして狭い所まで刻んでしまうこと。", zone:[110,120]},
+
+  {n:12,par:4,y:335,hdcp:16,cls:"easy",tags:[["t-go","チャンス"]],
+   tee:"<b>UTで200〜210</b>を右センターへ。左バンカー越えの一発は狙わない。",
+   leave:"125〜135のフルショット",
+   green:"セカンドはクリーク越え。直接乗せて止める球。グリーン自体が難関。",
+   kill:"越えた先の中途半端な60〜80Y。難グリーンで一番寄らない距離。", zone:[125,135]},
+
+  {n:13,par:3,y:195,hdcp:14,cls:"hard",tags:[["t-hold","ボギーOK"]],
+   tee:"センター〜やや右。確実にキャリーする番手を持つ。",
+   leave:"—",
+   green:"手前左からせり出すバンカーが曲者。右手前の段が転がり込みを止める。",
+   kill:"<b>奥。</b>オーバーしたら終わり。手前ラフからのボギーで上等。", zone:null},
+
+  {n:14,par:4,y:428,hdcp:2,cls:"hard",tags:[["t-anti","持ち球と逆"],["t-hold","ボギーOK"]],
+   tee:"軽い右ドッグレッグ。<b>正面のバンカー方向にスタート</b>させて持ち球でセンターに戻す。フェードに持ち替えない。",
+   leave:"165〜175をグリーンセンターだけ見て",
+   green:"風が湿原を吹き抜ける。<b>打つ前に必ず風を確認</b>。",
+   kill:"両サイドの湿原＝ロスト。本日の最難関、ボギーは予定通り。", zone:[165,175]},
+
+  {n:15,par:4,y:395,hdcp:8,cls:"hard",tags:[["t-anti","左が死"]],
+   tee:"池は右にあるが<b>正解も右</b>。センターやや右へ。不安なら3Wで確実に右半分。",
+   leave:"打ち上げ分<b>+1番手</b>",
+   green:"心臓破りの丘を越える打ち上げ。右サイドからならまっすぐ狙える。",
+   kill:"センターより左＝木立がブラインドになりグリーンが狙えない。", zone:[150,165]},
+
+  {n:16,par:3,y:143,hdcp:18,cls:"easy",tags:[["t-go","NPホール"]],
+   tee:"<b>1番手大きめ</b>のコントロールショット、センターやや左。手前に落として転がす。",
+   leave:"—",
+   green:"ティーからグリーンまで右サイドに池。アゲインストが吹きやすい。",
+   kill:"右手前のバンカーと池。NP欲しさのピン狙いがここで出る。", zone:null},
+
+  {n:17,par:5,y:506,hdcp:6,cls:"",tags:[["t-go","チャンス"],["t-hold","DCホール"]],
+   tee:"フェアウェイセンターへ正確に。<b>ドラコンを狙うかはティーに立つ前に決める</b>。",
+   leave:"バンカーを越える数字が確実に出なければ手前に刻んでフルウェッジ",
+   green:"セカンドの選択が全て。FWセンターに点在するバンカーの手前か、越えるか。",
+   kill:"両サイドの湿原。中途半端な決断でバンカー。", zone:[95,110]},
+
+  {n:18,par:4,y:385,hdcp:12,cls:"easy",tags:[["t-go","振っていい"]],
+   tee:"<b>ドライバー全開</b>。フェアウェイが広く、飛ばすほど有利。",
+   leave:"打ち上げ分<b>+1〜2番手</b>、キャリーで乗せる",
+   green:"クラブハウスへの打ち上げ、砲台の小さいグリーン。手前も横も刈り込まれ、届かないとこぼれ落ちる。受けがきつい。",
+   kill:"ショート＝転がり落ちる。オーバー＝ノーチャンス。<b>ピンより下</b>。", zone:[110,125]},
+
+  {n:1,par:4,y:370,hdcp:15,cls:"",tags:[["t-draw","持ち球向き"]],
+   tee:"左ドッグレッグ。ドローが素直に活きる。コーナーへ。",
+   leave:"打ち下ろしのセカンドは<b>1番手下げる</b>",
+   green:"セカンドは打ち下ろしで距離感が難しい。",
+   kill:"昼食明け1発目の引っ掛け。振り幅を8割から入る。", zone:[125,140]},
+
+  {n:2,par:4,y:406,hdcp:7,cls:"",tags:[["t-hold","FWキープ"]],
+   tee:"フェアウェイキープ最優先。林間でOBラインが近い。",
+   leave:"145〜155をグリーンセンター",
+   green:"—",
+   kill:"思ったよりOBが近い。飛距離を取りにいかない。", zone:[145,155]},
+
+  {n:3,par:4,y:378,hdcp:3,cls:"hard",tags:[["t-hold","ボギーOK"]],
+   tee:"378Yで<b>HDCP3</b>＝距離ではなくティーショットに罠がある。キャディに置き所を確認。",
+   leave:"130〜150のフルショット",
+   green:"—",
+   kill:"知らずにドライバーを振ること。刻む勇気を先に持っておく。", zone:[130,150]},
+
+  {n:4,par:5,y:486,hdcp:13,cls:"easy",tags:[["t-go","本日最大のチャンス"]],
+   tee:"ほぼストレート。<b>ドライバーで振っていい</b>。",
+   leave:"2オン狙いは<b>ライを見てから</b>決める。悪ければ残り80〜100に刻む",
+   green:"フェアウェイのアンジュレーションで左足下がり・爪先上がりが出やすい。",
+   kill:"悪いライから無理に2オンを狙うこと。", zone:[80,100]},
+
+  {n:5,par:3,y:163,hdcp:9,cls:"easy",tags:[["t-go","NPホール"]],
+   tee:"グリーンセンター。ピンが手前なら勝負。",
+   leave:"—",
+   green:"—",
+   kill:"奥。このコースのショートは全部オーバーが難しい。", zone:null},
+
+  {n:6,par:4,y:360,hdcp:5,cls:"hard",tags:[["t-hold","ボギーOK"]],
+   tee:"360Yで<b>HDCP5</b>。距離ではない難しさ。置き所を確認して刻む。",
+   leave:"自信のあるフルショットの距離を残す",
+   green:"—",
+   kill:"距離が短いから、と何も考えずにドライバー。", zone:[120,140]},
+
+  {n:7,par:3,y:174,hdcp:17,cls:"easy",tags:[["t-go","最も易しい"]],
+   tee:"グリーンセンター。淡々と。",
+   leave:"—",
+   green:"—",
+   kill:"奥。", zone:null},
+
+  {n:8,par:4,y:397,hdcp:1,cls:"hard",tags:[["t-draw","持ち球が武器"],["t-hold","ボギーOK"]],
+   tee:"<b>フェアウェイ左サイド</b>。左から右への傾斜でボールは右へ流れる。左に打ち出して戻すドローが正解。",
+   leave:"打ち上げで実質420Y級。<b>無理に乗せずグリーン手前</b>へ",
+   green:"かなりの受けグリーン。上につけたらノーチャンス。",
+   kill:"右は谷のように低くOB。17ホール目の疲れで右に出る。", zone:[150,175]},
+
+  {n:9,par:5,y:487,hdcp:11,cls:"",tags:[["t-hold","3打で乗せる"],["t-hold","DCホール"]],
+   tee:"狭いフェアウェイにドライバーをきっちり。",
+   leave:"<b>クリーク手前に刻む。</b>残りは一番自信のあるフルウェッジの距離に合わせる",
+   green:"3打目は大きな木越えの打ち上げ、斜めに横たわる縦幅のない2段グリーン。手前と奥にバンカー。",
+   kill:"3打目の番手不足。ピンのある段に届く番手を選ぶ。", zone:[100,110]}
+];
+
+const MAXY = 515;
+const chips = document.getElementById("chips");
+const holes = document.getElementById("holes");
+
+function scaleHTML(h){
+  const w = (h.y / MAXY) * 100;
+  const ticks = [200,150,100].filter(d => d < h.y - 25);
+  const colors = {200:"var(--nest-blue)",150:"var(--nest-yellow)",100:"var(--nest-white)"};
+  let inner = `<div class="fill" style="width:100%"></div>`;
+  if(h.zone){
+    const l = ((h.y - h.zone[1]) / h.y) * 100;
+    const r = ((h.y - h.zone[0]) / h.y) * 100;
+    inner += `<div class="zone" style="left:${l}%;width:${Math.max(r-l,4)}%"></div>`;
+  }
+  ticks.forEach(d => {
+    const p = ((h.y - d) / h.y) * 100;
+    inner += `<div class="tick" style="left:${p}%"><i style="background:${colors[d]}"></i><b>${d}</b></div>`;
+  });
+  const zl = h.zone ? `<span class="zlabel">■ 残したい距離 ${h.zone[0]}〜${h.zone[1]}Y</span>` : "";
+  return `<div class="scale"><div class="track" style="width:${w}%;min-width:62%">${inner}</div>${zl}</div>`;
+}
+
+let html = "";
+DATA.forEach((h,i) => {
+  if(i === 0) html += `<div class="nine-label">前半 ／ IN</div>`;
+  if(h.n === 1) html += `<div class="turn-break">昼食休憩 → 後半 OUT へ。1発目は振り幅8割から。</div><div class="nine-label">後半 ／ OUT</div>`;
+  chips.insertAdjacentHTML("beforeend",
+    (h.n === 1 ? `<span class="chip turn">TURN</span>` : "") +
+    `<a class="chip" href="#h${h.n}">${h.n}</a>`);
+  html += `
+  <article class="hole ${h.cls}" id="h${h.n}">
+    <div class="hrow">
+      <span class="hnum">${h.n}</span>
+      <span class="hpar">PAR ${h.par}　HDCP ${h.hdcp}</span>
+      <span class="hyds">${h.y}<em>Y</em></span>
+    </div>
+    ${h.tags.map(t => `<span class="tag ${t[0]}">${t[1]}</span>`).join("")}
+    ${scaleHTML(h)}
+    <dl>
+      <dt>ティー</dt><dd>${h.tee}</dd>
+      ${h.leave !== "—" ? `<dt>残す</dt><dd>${h.leave}</dd>` : ""}
+      ${h.green !== "—" ? `<dt>グリーン</dt><dd>${h.green}</dd>` : ""}
+      <dt>死に筋</dt><dd class="kill">${h.kill}</dd>
+    </dl>
+  </article>`;
+});
+holes.innerHTML = html;
+</script>
+</body>
+</html>
