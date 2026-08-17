@@ -172,6 +172,83 @@
     border-top:1px dashed var(--border);
   }
 
+  /* ---------- 勝負の形式 見出し ---------- */
+  .rules-heading{
+    font-family:"Noto Serif JP",serif;
+    font-size:1.35rem;
+    font-weight:700;
+    color:var(--fairway-dark);
+    margin:26px 0 6px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--gold);
+    letter-spacing:0.04em;
+  }
+  .rules-lead{
+    font-size:0.82rem;
+    color:var(--sub);
+    margin:0 0 14px;
+  }
+
+  /* ---------- アコーディオン ---------- */
+  details.rule{
+    border:1px solid var(--border);
+    border-left:3px solid var(--gold);
+    border-radius:4px;
+    background:var(--card);
+    margin-bottom:8px;
+    overflow:hidden;
+  }
+  details.rule > summary{
+    list-style:none;
+    cursor:pointer;
+    padding:13px 16px 13px 14px;
+    font-weight:700;
+    font-size:0.94rem;
+    color:var(--fairway-dark);
+    background:var(--fairway-light);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:background 0.15s;
+  }
+  details.rule > summary::-webkit-details-marker{display:none;}
+  details.rule > summary:hover{background:#dde8db;}
+  details.rule > summary::after{
+    content:"＋";
+    margin-left:auto;
+    font-size:0.95rem;
+    font-weight:700;
+    color:var(--gold);
+    flex-shrink:0;
+  }
+  details.rule[open] > summary::after{content:"−";}
+  details.rule[open] > summary{border-bottom:1px solid var(--border);}
+  .rule-body{
+    padding:4px 16px 16px;
+  }
+  .rule-body .table-note{
+    border-top:none;
+    padding-top:10px;
+    margin-top:8px;
+  }
+  .rule-body .table-note:first-child{
+    padding-top:12px;
+    margin-top:0;
+  }
+  .rule-body table{margin-top:4px;}
+  details.rule.mini{
+    border-left-width:2px;
+    margin:8px 0 0;
+  }
+  details.rule.mini > summary{
+    padding:8px 13px 8px 12px;
+    font-size:0.8rem;
+    font-weight:500;
+    background:#f1f5f0;
+  }
+  details.rule.mini > summary::after{font-size:0.85rem;}
+  details.rule.mini .rule-body{padding:10px 13px 12px;font-size:0.8rem;color:var(--sub);}
+
   /* ---------- day cards ---------- */
   .day-card{
     background:var(--card);
@@ -335,7 +412,7 @@
 
 <div class="container">
 
-  <div class="updated">最終更新：2026年8月3日</div>
+  <div class="updated">最終更新：2026年8月17日</div>
 
   <!-- ================= メンバー ================= -->
   <section>
@@ -357,8 +434,8 @@
         </tr>
         <tr>
           <td class="name">宮 秀一</td>
-          <td class="dot-yes">●</td><td class="dot-yes">●</td><td class="dot-no">−</td><td class="dot-no">−</td>
-          <td class="note">9/21終了後に帰宅</td>
+          <td class="dot-yes">●</td><td class="dot-yes">●</td><td class="dot-yes">●</td><td class="dot-yes">●</td>
+          <td class="note">【8/17更新】当初は9/21終了後に帰宅予定だったが、4日間連続参加が可能に。9/22・23が7名→8名。食事も9/21・9/22ともに8名へ変更完了済み</td>
         </tr>
         <tr>
           <td class="name">岡村 佳明</td>
@@ -391,7 +468,195 @@
           <td class="note">【7/12更新】20日18:20新千歳空港着に変更・自身の車でピックアップ予定／20日夜の食事会から合流／復路NH076同乗／ホテル同一手配依頼中</td>
         </tr>
       </table>
-      <p class="table-note">日別人数（ゴルフ）：9/20＝4名／9/21＝8名／9/22・23＝7名　※9/20夜の食事は塚さん合流で5名</p>
+      <p class="table-note">日別人数（ゴルフ）：9/20＝4名／9/21・22・23＝8名　※9/20夜の食事は塚さん合流で5名</p>
+    </div>
+  </section>
+
+  <!-- ================= 組み合わせ ================= -->
+  <section>
+    <h2>チーム分け・組み合わせ（全日程）</h2>
+    <div class="card">
+      <p class="table-note" style="margin-top:0;">
+        各組の力が均等になるよう配分しています。組ごとの内訳は非公開とし、ハンデは新ペリア方式で当日算出します（事前の申告ハンデは使いません）。<br>
+        ・<b>9/20</b>：<b>4名の個人戦</b>（ビンゴ・バンゴ・ボンゴ）／・<b>9/21</b>：チーム対抗（ホールマッチ対決）／・<b>9/22</b>：<b>8名の個人戦</b>（新ペリア・ネット順位）／・<b>9/23</b>：チーム対抗（ベストボール・マッチプレー）
+      </p>
+      <table style="margin-top:12px;">
+        <tr>
+          <th style="text-align:left;">日程</th>
+          <th style="text-align:left;">チーム</th>
+          <th style="text-align:left;">メンバー</th>
+          <th style="text-align:left;">賭け</th>
+        </tr>
+        <tr>
+          <td class="name">9/20<br>北海道<br>クラシック</td>
+          <td class="name">1組4名（個人戦）</td>
+          <td class="note">藤井・宮・岡村・川平</td>
+          <td class="note">夕食代<br>（支払い方法は当日相談）</td>
+        </tr>
+        <tr>
+          <td class="name" rowspan="2">9/21<br>桂GC</td>
+          <td class="name">①（1組目 OUT 12:30）</td>
+          <td class="note">藤井・武田・岡村・大澤</td>
+          <td class="note" rowspan="2">1次会の食事代</td>
+        </tr>
+        <tr>
+          <td class="name">②（2組目 OUT 12:37）</td>
+          <td class="note">川平・佐野・宮・塚</td>
+        </tr>
+        <tr>
+          <td class="name" rowspan="2">9/22<br>小樽CC</td>
+          <td class="name">1組目 12:14〜（個人戦）</td>
+          <td class="note">藤井・武田・川平・塚</td>
+          <td class="note" rowspan="2">2次会代<br>（下位4名が負担）</td>
+        </tr>
+        <tr>
+          <td class="name">2組目（個人戦）</td>
+          <td class="note">岡村・佐野・宮・大澤</td>
+        </tr>
+        <tr>
+          <td class="name" rowspan="2">9/23<br>北海道<br>クラシック</td>
+          <td class="name">1組目 9:08〜</td>
+          <td class="note">藤井・宮・塚・大澤</td>
+          <td class="note" rowspan="2">プレー後の食事代</td>
+        </tr>
+        <tr>
+          <td class="name">2組目 9:16〜</td>
+          <td class="note">武田・岡村・川平・佐野</td>
+        </tr>
+      </table>
+
+      <div class="rules-heading">勝負の形式</div>
+      <p class="rules-lead">各日の見出しを押すと、詳しいルールが開きます。</p>
+
+      <details class="rule">
+        <summary>🎯 9/20：ビンゴ・バンゴ・ボンゴ（4名の個人戦）／夕食代</summary>
+        <div class="rule-body">
+      <p class="table-note" style="margin-top:0;">
+        <b>メンバー：藤井・宮・岡村・川平（1組4名）</b>／毎ホール<b>3点</b>を4人で奪い合います。<br>
+        <b>賭け：18H終了時の合計点で夕食代（しろ・20:00〜）を賭ける。支払い方法は当日相談</b>　※夕食は塚さん合流の5名だが、プレーは4名。精算の仕方は当日その場で決める
+      </p>
+      <table>
+        <tr><th style="text-align:left;">呼び名</th><th style="text-align:left;">取り方</th></tr>
+        <tr><td class="name">ビンゴ</td><td class="note">そのホールで<b>最初にグリーンに乗せた人</b></td></tr>
+        <tr><td class="name">バンゴ</td><td class="note">全員が乗った時点で<b>ピンに一番近い人</b></td></tr>
+        <tr><td class="name">ボンゴ</td><td class="note">そのホールで<b>最初にカップインした人</b>（ファーストイン）</td></tr>
+      </table>
+      <p class="table-note" style="margin-top:10px;">
+        ・<b>前提：正規の打順を守る</b>（ピンから遠い人が先に打つ）。飛距離が出ない人ほど先に打てるのでビンゴを取りやすく、ボンゴも「遠い人から順に打ち続ける」流れで先に入れた人が取るため、<b>ハンデを使わずに実力差が縮まる</b>のがこのゲームの肝<br>
+        ・<b>パー3の細則</b>：全員ティーから打つので、ビンゴは「ティーショットが一番ピンに近い人」に読み替える<br>
+        ・<b>ボンゴはファーストイン判定なので、OKパットは出さず全員がホールアウトする</b><br>
+        ・18H×3点＝<b>54点</b>を4人で分け合う<br>
+        ・集計はスコアカードの空欄に「正」の字を書くだけ（アプリでは自動計算不可・記録係を1名決める）
+      </p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>🍖 9/21：ホールマッチ対決（チーム対抗）／1次会の食事代</summary>
+        <div class="rule-body">
+      <p class="table-note" style="margin-top:0;">
+        8名を2チームに分け、ホールバイホールのマッチプレー形式で対決します。<br>
+        <b>チーム分け（8/17決定・あみだくじは取りやめ）</b><br>
+        　<b>①チーム</b>（1組目 OUT 12:30）：藤井・武田・岡村・大澤<br>
+        　<b>②チーム</b>（2組目 OUT 12:37）：川平・佐野・宮・塚<br><br>
+        ・<b>ホールスコアの決め方</b>：そのホールのチーム内スコアで<b>1位と3位のグロスを合計</b>（ハンディキャップ考慮なし）。例：4人が「4・5・5・6」なら 1位(4)＋3位(5)＝9<br>
+        ・<b>勝敗</b>：ホールスコアが少ない方がそのホールの勝ち／同数は引き分け／18ホール終了時点で獲得ホール数の多いチームが勝利<br>
+        ・<b>賭け</b>：負けチームが1次会の食事代を負担（変更あれば連絡）
+      </p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>🏆 9/22：新ペリアのネット順位（8名の個人戦）／2次会代</summary>
+        <div class="rule-body">
+      <p class="table-note" style="margin-top:0;">
+        集計はゴルフネットワークのコンペ機能（ダブルパーカット／NETランキング／新ペリア／隠しホール設定）で自動化。ラウンド後に隠しホールを入力してネット順位を確定します。ハンデが最後まで分からないので発表の瞬間が最大のクライマックスに。<b>手集計も進行の遅れもゼロ</b>。<br>
+        <b>賭け：ネット順位の下位4名が2次会代を負担</b>（1位は「本日のチャンピオン」）<br><br>
+        ①隠しホール12ホール（パー3×2・パー4×8・パー5×2）を決め、<b>ラウンド終了まで伏せる</b><br>
+        ②各自の隠し12ホールのスコアを合計　※<b>ダブルパーが上限</b>（パー4なら8打まで）<br>
+        ③<b>ハンデ ＝（隠し12ホールの合計 × 1.5 − コースのパー72）× 0.8</b>　※上限40<br>
+        ④<b>ネット ＝ グロス − ハンデ</b> → ネットの少ない順に個人ランキング
+      </p>
+      <table>
+        <tr>
+          <th style="text-align:left;">選手</th><th>グロス</th><th>隠し12H合計</th>
+          <th style="text-align:left;">ハンデ計算</th><th>ハンデ</th><th>ネット</th>
+        </tr>
+        <tr><td class="name">佐野</td><td>84</td><td>58</td><td class="note">(58×1.5−72)×0.8</td><td>12.0</td><td><b>72.0</b></td></tr>
+        <tr><td class="name">藤井</td><td>89</td><td>62</td><td class="note">(62×1.5−72)×0.8</td><td>16.8</td><td>72.2</td></tr>
+        <tr><td class="name">宮</td><td>94</td><td>66</td><td class="note">(66×1.5−72)×0.8</td><td>21.6</td><td>72.4</td></tr>
+        <tr><td class="name">武田</td><td>85</td><td>58</td><td class="note">(58×1.5−72)×0.8</td><td>12.0</td><td>73.0</td></tr>
+        <tr><td class="name">岡村</td><td>92</td><td>63</td><td class="note">(63×1.5−72)×0.8</td><td>18.0</td><td>74.0</td></tr>
+        <tr><td class="name">塚</td><td>95</td><td>65</td><td class="note">(65×1.5−72)×0.8</td><td>20.4</td><td>74.6</td></tr>
+        <tr><td class="name">大澤</td><td>102</td><td>70</td><td class="note">(70×1.5−72)×0.8</td><td>26.4</td><td>75.6</td></tr>
+        <tr><td class="name">川平</td><td>105</td><td>72</td><td class="note">(72×1.5−72)×0.8</td><td>28.8</td><td>76.2</td></tr>
+      </table>
+      <p class="table-note" style="margin-top:10px;">数字は架空。グロスでは佐野84・川平105と21打差ですが、ネットでは4.2打差まで縮まります。事前に誰のハンデも決めないので、実力の申告・開示は一切不要です</p>
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>🎲 9/22の隠しホールくじ引き（実施は9/21夜・赤兎馬にて）</summary>
+        <div class="rule-body">
+      <p class="table-note" style="margin-top:0;">
+        <b>⚠️ 引いた札は見ずに封筒へ。開封はラウンド終了後。アプリには後から入力します。</b><br><br>
+        <b>なぜ伏せるのか</b>：ネット＝グロス−（隠し12H合計×1.5−72)×0.8 なので、<b>隠しホールで1打多く叩くとネットが0.2打良くなります</b>（グロス+1に対しハンデ+1.2）。逆に隠しホール以外で叩けばまるまる+1の損。つまり隠しホールを知っている人は、そこでわざと大きく叩くほど有利になります。パー4で5打→8打なら0.6打得、12ホール積み上げれば2〜4打動きます。新ペリアの隠しホールが伏せられているのは、この抜け道を塞ぐためです<br><br>
+        <b>引き方</b>：小樽CC新コースはパー72で、パー3が4ホール（4・7・12・17番）／パー5が4ホール（6・9・10・13番）／パー4が10ホール。ここから「除外する6ホール」を3回に分けて引きます
+      </p>
+      <table>
+        <tr><th style="text-align:left;">くじ</th><th style="text-align:left;">対象ホール</th><th>引く枚数</th></tr>
+        <tr><td class="name">①</td><td class="note">パー3：4・7・12・17番</td><td>2枚</td></tr>
+        <tr><td class="name">②</td><td class="note">パー5：6・9・10・13番</td><td>2枚</td></tr>
+        <tr><td class="name">③</td><td class="note">パー4：上記以外の10ホール</td><td>2枚</td></tr>
+      </table>
+      <p class="table-note" style="margin-top:10px;">
+        引いた6ホールが除外、<b>残り12ホールが隠しホール</b>（自動的にパー3×2・パー4×8・パー5×2の標準構成になる）。8人いるので2人1組で引けば全員参加できます。札は伏せたまま封筒に入れて封をし、翌日のラウンド終了後に開封 → アプリに入力 → ネット順位が確定。<b>ラウンド中ずっと「あのホール、隠しかも」という会話が続く</b>ので、公開するより盛り上がります
+      </p>
+
+        </div>
+      </details>
+
+      <details class="rule">
+        <summary>🍽️ 9/23：ベストボール・マッチプレー（チーム対抗）／プレー後の食事代</summary>
+        <div class="rule-body">
+      <p class="table-note" style="margin-top:0;">
+        プレー後の食事をかけたチーム対抗戦。<br>
+        　<b>1組目</b>（9:08〜）：藤井・宮・塚・大澤<br>
+        　<b>2組目</b>（9:16〜）：武田・岡村・川平・佐野<br><br>
+        ・<b>形式</b>：ベストボール・マッチプレー（グロス）。各ホールでチーム内ベストのグロスを比較し、少ない方がそのホールの勝ち。18H終了時の獲得ホール数で決着<br>
+        ・<b>賭け</b>：負けチームがプレー後の食事代を負担
+      </p>
+        </div>
+      </details>
+
+      <h3 style="margin-top:22px;">各メンバーの同組相手（4日間）</h3>
+      <table>
+        <tr>
+          <th style="text-align:left;">メンバー</th>
+          <th style="text-align:left;">9/20</th>
+          <th style="text-align:left;">9/21 桂GC</th>
+          <th style="text-align:left;">9/22 小樽CC</th>
+          <th style="text-align:left;">9/23 北海道クラシック</th>
+        </tr>
+        <tr><td class="name">藤井</td><td class="note">宮・岡村・川平</td><td class="note">武田・岡村・大澤</td><td class="note">武田・川平・塚</td><td class="note">宮・塚・大澤</td></tr>
+        <tr><td class="name">武田</td><td class="note">ー</td><td class="note">藤井・岡村・大澤</td><td class="note">藤井・川平・塚</td><td class="note">岡村・川平・佐野</td></tr>
+        <tr><td class="name">岡村</td><td class="note">藤井・宮・川平</td><td class="note">藤井・武田・大澤</td><td class="note">佐野・宮・大澤</td><td class="note">武田・川平・佐野</td></tr>
+        <tr><td class="name">川平</td><td class="note">藤井・宮・岡村</td><td class="note">佐野・宮・塚</td><td class="note">藤井・武田・塚</td><td class="note">武田・岡村・佐野</td></tr>
+        <tr><td class="name">佐野</td><td class="note">ー</td><td class="note">川平・宮・塚</td><td class="note">岡村・宮・大澤</td><td class="note">武田・岡村・川平</td></tr>
+        <tr><td class="name">宮</td><td class="note">藤井・岡村・川平</td><td class="note">川平・佐野・塚</td><td class="note">岡村・佐野・大澤</td><td class="note">藤井・塚・大澤</td></tr>
+        <tr><td class="name">塚</td><td class="note">ー</td><td class="note">川平・佐野・宮</td><td class="note">藤井・武田・川平</td><td class="note">藤井・宮・大澤</td></tr>
+        <tr><td class="name">大澤</td><td class="note">ー</td><td class="note">藤井・武田・岡村</td><td class="note">岡村・佐野・宮</td><td class="note">藤井・宮・塚</td></tr>
+      </table>
+
+      <p class="table-note" style="margin-top:14px;">
+        <b>組み方の根拠</b><br>
+        ・<b>毎日シャッフル（最優先）</b>：<b>3日連続で同じ組になるペアはゼロ</b>。1日目（9/20の4名）も算入したうえで、どのペアも4日間で<b>最大2回まで</b>。特定のコンビが固定される状態を完全に排除<br>
+        ・<b>同伴者の広さ</b>：<b>全員が4日間で7人中6人と同じ組</b>になります<br>
+        ・<b>4日間で一度も同組にならないのは4ペア</b>（藤井・佐野／岡村・塚／川平・大澤／武田・宮）。これは「3日連続を避ける」制約下では数学的に避けられません。逆に全ペア網羅を優先すると、4組のペアが3日間とも固定になります（両立は不可能）<br>
+        ・<b>チーム力の均等化</b>：どの日もチーム間の力量差が最小になる配分（内訳は非公開）<br>
+        ・<b>交流の配慮</b>：往路同乗組（藤井・宮・岡村・川平）とレンタカー別手配組（武田・佐野・大澤・塚）が偏らないよう配分<br>
+        ・<b>スタート順</b>：飛距離差が小さいため進行上の制約は設けない
+      </p>
     </div>
   </section>
 
@@ -436,11 +701,36 @@
         <div class="item">
           <div class="icon">🍽️</div>
           <div class="content">
-            <div class="title">夕食：候補2店から選定中<span class="badge check">7/12更新</span></div>
+            <div class="title">🎯 ビンゴ・バンゴ・ボンゴ（4名の個人戦）<span class="badge check">夕食代を賭ける</span></div>
             <div class="detail">
-              5名（塚さん合流のため4→5名）｜候補だった「芯々」は定休日が日曜の可能性があり9/20と重なるため保留。宮さんが下記2店を選定中：<br>
-              ①しろ｜TEL 011-521-4060｜北海道札幌市中央区南四条西24-1-24｜<a href="https://tabelog.com/hokkaido/A0101/A010105/1002175/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">食べログ</a><br>
-              ②サンドイッチ工房 サンドリア 本店｜TEL 011-512-5993｜北海道札幌市中央区南八条西9丁目785-14｜<a href="https://tabelog.com/hokkaido/A0101/A010104/1001503/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">食べログ</a>
+              藤井・宮・岡村・川平の1組4名。<b>支払い方法は当日相談</b>（夕食は塚さん合流の5名だが、プレーは4名）<br>
+              形式・賭けのルールは「チーム分け・組み合わせ」の章にまとめています
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">🍽️</div>
+          <div class="content">
+            <div class="title">夕食：しろ<span class="badge ok">20:00〜・5名で確定</span></div>
+            <div class="detail">
+              20:00〜・5名で予約確定（8/17・宮さん手配）｜TEL 011-521-4060<br>
+              北海道札幌市中央区南四条西24-1-24（円山公園エリア）｜予算（夜）¥10,000〜<br>
+              <a href="https://tabelog.com/hokkaido/A0101/A010105/1002175/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">食べログ</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">🥪</div>
+          <div class="content">
+            <div class="title">夜遅く：サンドリア本店で9/21朝食用サンドイッチを購入<span class="badge ok">8/17決定</span></div>
+            <div class="detail">
+              <b>サンドイッチ工房 サンドリア 本店</b>｜<b>24時間営業・年中無休</b>（年末年始のみ休み）<br>
+              〒064-0808 北海道札幌市中央区南8条西9丁目758-14（東屯田通り）｜TEL 011-512-5993／0800-900-3101<br>
+              常時40種類以上。人気は ダブルエッグ300円／てりたま340円／フルーツ300円／エビマヨ350円（税込）<br>
+              <b>⚠️ 2023年6月より予約・お取り置き・配達は全面廃止。</b>当日店頭で並んで購入するのみ<br>
+              ホテル（南3条西5）からは南へ徒歩15分ほど・タクシー5分程度<br>
+              📌 <b>要決定</b>：購入する人数分と、誰が買いに行くか<br>
+              <a href="https://www.s-sandwich.com/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">公式サイト</a>
             </div>
           </div>
         </div>
@@ -457,23 +747,48 @@
         <div class="item">
           <div class="icon">⛳</div>
           <div class="content">
-            <div class="title">ゴルフ：ブルックスカントリークラブ<span class="badge check">8名対応要確認</span></div>
+            <div class="title">ゴルフ：桂ゴルフ倶楽部【GRAND PGM】<span class="badge ok">8名で予約確定</span></div>
             <div class="detail">
-              OUT 12:00／OUT 12:08　2組・8名｜キャディ付電磁誘導カート／代表者料金 4B　36,000円（元は7名で仮予約）<br>
-              〒059-1365 北海道苫小牧市字植苗437　TEL 0144-58-3211<br>
-              <a href="https://www.brooks-c.com/course/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">公式コース紹介・コースマップ</a>／
-              <a href="https://www.brooks-c.com/access/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">公式アクセス</a>
+              <strong>【8/17変更】ブルックスカントリークラブから桂ゴルフ倶楽部に変更</strong><br>
+              プラン：【直前HOT】午後スルー／ナビ付電磁誘導カート／セルフプレー<br>
+              1組目 OUT 12:30／2組目 OUT 12:37　2組・8名<br>
+              プレースタイル：ナビ付き乗用カート（4人用）セルフ／<strong>昼食は別料金</strong><br>
+              税込総額 28,300円（税別24,610円＋消費税2,460円＋利用税等1,230円）※1組分か全体かは要確認<br>
+              割増料金：2サム 3,960円（税込）／3サム 0円　｜　組合せ：2サム受付不可・3サム保証<br>
+              〒059-1365 北海道苫小牧市植苗577-1　TEL 0144-57-5757<br>
+              <a href="https://www.pacificgolf.co.jp/katsura/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">PGM公式</a>／
+              <a href="https://golf-jalan.net/gc00037/map/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">地図・アクセス</a>
             </div>
           </div>
         </div>
         <div class="item">
           <div class="icon">🕒</div>
           <div class="content">
-            <div class="title">ホテル集合 9:30・出発 9:40</div>
+            <div class="title">ホテル集合 9:10・出発 9:20<span class="badge check">練習時間確保のため前倒し</span></div>
             <div class="detail">
-              札幌中心部→ブルックスCC（苫小牧市植苗）は道央自動車道利用で公式所要時間 約70分。<br>
-              1組目スタート12:00の1時間前＝11:00現地到着を目標に、移動70分＋駐車・荷下ろし等のバッファ10分＝リードタイム80分で逆算。<br>
-              9:40ホテル出発 → 現地到着目安 10:50頃（スタートまで約70分の余裕）。9:30にロビー集合し、9:40出発とします。
+              現地での流れ：10:30着 → 天然芝で練習 → 昼食 → 12:30スタート
+              <details class="rule mini">
+                <summary>算出根拠を見る</summary>
+                <div class="rule-body">
+                  <strong>桂GCは天然芝の練習場が使えるため、この日のみスタート2時間前の現地到着で設定。</strong><br>
+                  札幌市内→桂ゴルフ倶楽部（苫小牧市植苗）は道央自動車道の新千歳空港IC下車6kmで約60分。<br>
+                  1組目スタート12:30の2時間前＝10:30現地到着を目標に、移動60分＋駐車・荷下ろし等のバッファ10分＝リードタイム70分で逆算。<br>
+                  9:20ホテル出発 → 現地到着目安 10:30頃。9:10にロビー集合し、9:20出発とします。
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">⚠️</div>
+          <div class="content">
+            <div class="title">桂GCでの注意点</div>
+            <div class="detail">
+              <b>天然芝の練習場あり</b>：打ち込み時間を確保するためスタート2時間前（10:30）に現地到着する設定。練習ボール代は別途かかる想定<br>
+              <b>午後スルー・昼食別料金</b>：プレー中の昼食休憩がないため、昼食はスタート前に。10:30着→12:30スタートなので、練習後にクラブハウスで昼食を取る流れが現実的<br>
+              <b>セルフプレー</b>：ブルックスはキャディ付きだったが今回はセルフ。ホールマッチのスコア管理は各自で<br>
+              <b>予約変更の期限</b>：プレー日の変更は前日（9/20）正午まで／人数・スタート時間の変更は前日16時まで<br>
+              <b>キャンセル料</b>：プレー当日を含む7日前＝<b>9月15日</b>から平日4,000円／1組。以降の日程変更・組数減は免責対象外
             </div>
           </div>
         </div>
@@ -482,26 +797,24 @@
           <div class="content">
             <div class="title">2日目 特別企画：ホールマッチ対決</div>
             <div class="detail">
-              7〜8名を2チームに分け、ホールバイホールのマッチプレーで対決。食事代を賭けた真剣勝負。<br><br>
-              <b>チーム分け</b>：事前にLINEのあみだくじで決定<br>
-              <b>ホールスコアの決め方</b>：そのホールのチーム内スコアで1位と3位のグロスを合計（ハンディキャップ考慮なし）。例：4人が「4・5・5・6」なら 1位(4)＋3位(5)＝9<br>
-              <b>勝敗</b>：ホールスコアが少ない方がそのホールの勝ち／同数は引き分け／18ホール終了時点で獲得ホール数の多いチームが勝利<br>
-              <b>賭け</b>：負けチームが1次会の食事代を負担（変更あれば連絡）
+              　<b>①チーム</b>（1組目 OUT 12:30）：藤井・武田・岡村・大澤<br>
+              　<b>②チーム</b>（2組目 OUT 12:37）：川平・佐野・宮・塚<br>
+              1次会の食事代を賭けた真剣勝負。形式・賭けのルールは「チーム分け・組み合わせ」の章にまとめています
             </div>
           </div>
         </div>
         <div class="item">
           <div class="icon">🍽️</div>
           <div class="content">
-            <div class="title">夕食：赤兎馬（生ラムジンギスカン）<span class="badge ok">7名で確定</span></div>
-            <div class="detail">20:00〜予約済・7名｜TEL 011-200-0635</div>
+            <div class="title">夕食：赤兎馬（生ラムジンギスカン）<span class="badge ok">20:00〜・8名で確定</span></div>
+            <div class="detail">20:00〜・<strong>8名へ変更完了（8/17）</strong>｜TEL 011-200-0635</div>
           </div>
         </div>
         <div class="item">
           <div class="icon">🏨</div>
           <div class="content">
             <div class="title">宿泊：ベッセルホテルカンパーナすすきの</div>
-            <div class="detail">宮さんは本日終了後に帰宅／塚さんは同ホテル別途手配依頼中</div>
+            <div class="detail">【8/17更新】宮さんは4日間参加に変更（帰宅取りやめ）→ 9/21・9/22の宿泊手配を要確認／塚さんは同ホテル別途手配依頼中</div>
           </div>
         </div>
       </div>
@@ -511,36 +824,91 @@
     <div class="day-card">
       <div class="day-head">
         <span class="date">3日目｜9月22日（火）</span>
-        <span class="count">7名：藤井・岡村・川平・武田・佐野・大澤・塚</span>
+        <span class="count">8名：藤井・宮・岡村・川平・武田・佐野・大澤・塚</span>
       </div>
       <div class="day-body">
         <div class="item">
           <div class="icon">⛳</div>
           <div class="content">
-            <div class="title">ゴルフ：小樽カントリー倶楽部 新コース<span class="badge check">7名対応要確認</span></div>
+            <div class="title">ゴルフ：小樽カントリー倶楽部 新コース<span class="badge check">8名対応要確認</span></div>
             <div class="detail">
-              12:14〜2組スタート（元は6名で仮予約）<br>
+              12:14〜2組スタート（元は6名で仮予約 → 7名 → <strong>8名</strong>）<br>
               〒047-0261 北海道小樽市銭函3-73　TEL 0134-62-5051（代表）／0134-62-5050（予約専用）<br>
               <a href="https://otaru-cc.com/course/course-new/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">新コース紹介</a>
             </div>
           </div>
         </div>
         <div class="item">
+          <div class="icon">👔</div>
+          <div class="content">
+            <div class="title">ドレスコード（1928年開場の名門・要注意）<span class="badge check">ジャケット必須</span></div>
+            <div class="detail">
+              <b>⚠️ ジャケット着用が必須の日程です。</b>任意なのは7/1〜8/31のみで、<b>9/22は対象外</b>。現地で借りることもできますが、持参が確実です。羽田6:20発の往路から荷物に入れておくこと<br><br>
+              <b>来場時・退場時</b><br>
+              ・男女とも<b>ジャケット・ブレザーなどの上着を着用</b>（7/1〜8/31のみ任意）<br>
+              ・ジーンズ、スウェットパンツ、Tシャツ、タンクトップ ✕<br>
+              ・サンダル（クロックスタイプ含む）、スニーカー ✕<br>
+              ・クラブハウスを出るまでドレスコードを維持<br><br>
+              <b>プレー中</b><br>
+              ・襟付きシャツまたはタートルネック。<b>シャツの裾は必ずズボンの中に入れる</b><br>
+              ・ゴルフ用半ズボンの場合はソックス着用<br>
+              ・襟のないシャツ（Tシャツ・トレーナー・タンクトップ等）✕／<b>襟が4cm以下のシャツ</b> ✕<br>
+              ・カーゴパンツ（ポケットの膨らんだタイプ）✕／男性の7分丈（クロップド）✕<br>
+              ・裾がリブ状のジャージパンツ・ジョガーパンツ ✕<br>
+              ・迷彩柄・国旗・動物柄など派手な色柄 ✕／タオルの首掛け・腰掛け ✕<br><br>
+              <b>その他の独自ルール</b><br>
+              ・<b>キャディバッグは13kg以内</b>（コース芝生保護のため）／芝を傷つけるスパイクシューズ ✕<br>
+              ・<b>ハーフ2時間以内でのプレー</b>を要請されている（日没との兼ね合いでも重要）<br>
+              ・クラブハウス内の通話はマスター室付近・2階テラス・ロッカールームのみ<br><br>
+              <a href="https://otaru-cc.com/guidance/etiquette/" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">公式 ドレスコード・マナー</a>／
+              <a href="https://otaru-cc.com/test/wp-content/uploads/dress-code.pdf" target="_blank" rel="noopener" style="color:var(--fairway-mid);font-weight:700;">PDF版</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
           <div class="icon">🕒</div>
           <div class="content">
-            <div class="title">ホテル集合 10:10・出発 10:20</div>
+            <div class="title">ホテル集合 9:00・出発 9:10<span class="badge check">昼食のため1時間前倒し</span></div>
             <div class="detail">
-              札幌中心部→小樽CC新コース（銭函）は約40分（公式発表の「札幌駅から約40分・銭函ICから約5分」を採用。すすきのも札幌中心部で同等の所要時間）。<br>
-              スタート12:14の1時間前＝11:14現地到着を目標に、移動40分＋バッファ10分＝リードタイム50分で逆算。<br>
-              10:20ホテル出発 → 現地到着目安 11:00〜11:10頃（スタートまで約1時間強の余裕）。10:10にロビー集合し、10:20出発とします。
+              <strong>午後スルーで昼食休憩がないため、現地レストランで先に昼食をとってからスタートします。</strong><br>
+              現地での流れ：9:50着 → クラブハウスで昼食 → 着替え・練習 → 12:14スタート
+              <details class="rule mini">
+                <summary>算出根拠を見る</summary>
+                <div class="rule-body">
+                  札幌中心部→小樽CC新コース（銭函）は約40分（公式発表の「札幌駅から約40分・銭函ICから約5分」を採用。すすきのも札幌中心部で同等の所要時間）。<br>
+                  スタート12:14の約2時間半前＝9:50現地到着を目標に、移動40分＋駐車・荷下ろし等のバッファ10分＝リードタイム50分で逆算。<br>
+                  9:10ホテル出発 → 現地到着目安 9:50頃。9:00にロビー集合し、9:10出発とします。<br>
+                  ※8/17に10:10集合から1時間前倒し。
+                </div>
+              </details>
             </div>
           </div>
         </div>
         <div class="item">
           <div class="icon">🍽️</div>
           <div class="content">
-            <div class="title">夕食：鮨 無双<span class="badge ok">20:00〜・7名で確定</span></div>
-            <div class="detail">20:00〜・7名｜TEL 011-616-0011</div>
+            <div class="title">夕食：鮨 無双<span class="badge ok">20:00〜・8名で確定</span></div>
+            <div class="detail">20:00〜・<strong>8名へ変更完了（8/17・宮さん追加）</strong>｜TEL 011-616-0011</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">🍻</div>
+          <div class="content">
+            <div class="title">組み合わせ／2次会をかけた個人戦</div>
+            <div class="detail">
+              <b>1組目（12:14〜）</b>：藤井・武田・川平・塚<br>
+              <b>2組目</b>：岡村・佐野・宮・大澤<br><br>
+              <b>この日はチーム戦ではなく8名の個人戦</b><br>
+              <b>形式</b>：新ペリア・ネット順位（アプリ自動集計）。1位が本日のチャンピオン。手集計も進行の遅れもゼロ<br>
+              <b>賭け</b>：ネット順位の<b>下位4名が2次会代を負担</b>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">🌇</div>
+          <div class="content">
+            <div class="title">日没の目安</div>
+            <div class="detail">銭函の日の入は17:33。12:14スタートで通常進行なら16:50頃終了と余裕はあるが、遅れると薄暮になるため進行は意識したい</div>
           </div>
         </div>
       </div>
@@ -550,14 +918,14 @@
     <div class="day-card">
       <div class="day-head">
         <span class="date">4日目｜9月23日（水）</span>
-        <span class="count">7名：藤井・岡村・川平・武田・佐野・大澤・塚</span>
+        <span class="count">8名：藤井・宮・岡村・川平・武田・佐野・大澤・塚</span>
       </div>
       <div class="day-body">
         <div class="item">
           <div class="icon">⛳</div>
           <div class="content">
-            <div class="title">ゴルフ：北海道クラシック<span class="badge check">7名対応要確認</span></div>
-            <div class="detail">9:08 / 9:16〜2組スタート（元は6名で仮予約）</div>
+            <div class="title">ゴルフ：北海道クラシック<span class="badge check">8名対応要確認</span></div>
+            <div class="detail">9:08 / 9:16〜2組スタート（元は6名で仮予約 → 7名 → <strong>8名</strong>）</div>
           </div>
         </div>
         <div class="item">
@@ -565,9 +933,26 @@
           <div class="content">
             <div class="title">ホテル集合 6:40・出発 6:50</div>
             <div class="detail">
-              札幌中心部→北海道クラシック（安平町早来）は道央自動車道利用で約60分（千歳ICより約18〜20km）。<br>
-              1組目スタート9:08の1時間前＝8:08現地到着を目標に、移動60分＋バッファ10分＝リードタイム70分で逆算。<br>
-              6:50ホテル出発 → 現地到着目安 7:50頃（スタートまで約1時間強の余裕）。6:40にロビー集合し、6:50出発とします。早朝のため前夜のうちに全員へ時間共有をおすすめします。
+              現地到着目安 7:50頃 → 9:08スタート。<strong>早朝のため前夜のうちに全員へ時間共有を</strong>
+              <details class="rule mini">
+                <summary>算出根拠を見る</summary>
+                <div class="rule-body">
+                  札幌中心部→北海道クラシック（安平町早来）は道央自動車道利用で約60分（千歳ICより約18〜20km）。<br>
+                  1組目スタート9:08の1時間前＝8:08現地到着を目標に、移動60分＋バッファ10分＝リードタイム70分で逆算。<br>
+                  6:50ホテル出発 → 現地到着目安 7:50頃（スタートまで約1時間強の余裕）。6:40にロビー集合し、6:50出発とします。
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="icon">🍽️</div>
+          <div class="content">
+            <div class="title">組み合わせ／プレー後の食事をかけたチーム対抗戦</div>
+            <div class="detail">
+              <b>1組目（9:08〜）</b>：藤井・宮・塚・大澤<br>
+              <b>2組目（9:16〜）</b>：武田・岡村・川平・佐野<br>
+              形式・賭けのルールは「チーム分け・組み合わせ」の章にまとめています
             </div>
           </div>
         </div>
@@ -575,7 +960,10 @@
           <div class="icon">✈️</div>
           <div class="content">
             <div class="title">新千歳 → 羽田</div>
-            <div class="detail">NH076　新千歳 18:30 発 → 羽田 20:10 着（塚さんも同便で帰京予定）</div>
+            <div class="detail">
+              NH076　新千歳 18:30 発 → 羽田 20:10 着（塚さんも同便で帰京予定）<br>
+              9:08スタートなら13:40頃終了。コースは千歳IC至近のため、空港周辺での食事が現実的
+            </div>
           </div>
         </div>
       </div>
@@ -605,7 +993,7 @@
           <div class="content">
             <div class="title">レンタカー</div>
             <ul class="simple" style="margin-top:8px;">
-              <li>藤井・宮・岡村・川平：1台7人乗りレンタカー</li>
+              <li>藤井・宮・岡村・川平：1台7人乗りレンタカー（宮さんは9/23まで同乗）</li>
               <li>武田・佐野・大澤：別便レンタカー手配</li>
               <li>塚：レンタカーなし（現地メンバーの車でピックアップ予定）</li>
             </ul>
@@ -620,11 +1008,17 @@
     <h2>残タスク</h2>
     <div class="card">
       <ul class="task-list" id="task-list">
-        <li><input type="checkbox" id="task-1"><label for="task-1">ブルックスカントリークラブ　8名対応可否の確認</label></li>
-        <li><input type="checkbox" id="task-2"><label for="task-2">小樽カントリークラブ　7名対応可否の確認</label></li>
-        <li><input type="checkbox" id="task-3"><label for="task-3">北海道クラシック（9/23）　7名対応可否の確認</label></li>
-        <li><input type="checkbox" id="task-5"><label for="task-5">9/20夜の食事：「しろ」「サンドリア本店」の2候補から決定・予約（5名）</label></li>
-        <li><input type="checkbox" id="task-10"><label for="task-10">2日目ホールマッチのチーム分け（LINEあみだくじ）を実施</label></li>
+        <li><input type="checkbox" id="task-18"><label for="task-18">小樽CC（9/22）のドレスコードを全員に周知：9月はジャケット着用必須。往路の荷物に入れるよう事前連絡（現地レンタルも可）</label></li>
+        <li><input type="checkbox" id="task-14"><label for="task-14">9/21 桂GC：午後スルーのため昼食をどこで取るかメンバーに共有</label></li>
+        <li><input type="checkbox" id="task-19"><label for="task-19">9/20夜のサンドリア：購入する人数分と、誰が買いに行くかを決める（予約不可・当日店頭のみ）</label></li>
+        <li><input type="checkbox" id="task-20"><label for="task-20">9/22の集合が9:00に前倒しになったことをメンバーに周知（現地レストランで先に昼食）</label></li>
+        <li><input type="checkbox" id="task-2"><label for="task-2">小樽カントリークラブ（9/22）　8名対応可否の確認　TEL 0134-62-5050</label></li>
+        <li><input type="checkbox" id="task-3"><label for="task-3">北海道クラシック（9/23）　8名対応可否の確認　TEL 0145-22-4101</label></li>
+        <li><input type="checkbox" id="task-13"><label for="task-13">宮さんの宿泊（9/21・9/22）・復路フライト（9/23）が本人手配済みか確認</label></li>
+        <li><input type="checkbox" id="task-10"><label for="task-10">各日のチーム分け・ゲームルールをメンバーに共有（8/17決定済み・あみだくじは取りやめ）</label></li>
+        <li><input type="checkbox" id="task-15"><label for="task-15">9/21夜（赤兎馬）で隠しホールのくじ引きを実施。札は見ずに封筒へ封入し、9/22ラウンド後に開封→アプリ入力。くじ用の札を事前に用意</label></li>
+        <li><input type="checkbox" id="task-16"><label for="task-16">ゴルフネットワークのコンペを作成し8名を招待（ダブルパーカット・NETランキング・新ペリアをON）</label></li>
+        <li><input type="checkbox" id="task-17"><label for="task-17">9/20のビンゴ・バンゴ・ボンゴ：記録係を1名決め、ルール（OKパットなし・正規の打順厳守）を4名に事前共有</label></li>
       </ul>
     </div>
   </section>
